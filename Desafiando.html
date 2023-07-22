@@ -1,16 +1,89 @@
 <!DOCTYPE html>
 <html>
-    <meta encode ='UTF-8'>
+    <meta charset ='UTF-8'>
     <meta portview="width = device-width initial-scale = 1">
+
+    <style>
+        html, body{
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+            text-align: center;
+        }
+        h1{
+            width: 100%;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            text-shadow: 0px 0px 2px black;
+            color:rgb(204, 194, 7);
+            font-size: 4rem;
+        }
+        .card{
+            display: box;
+            justify-content: center;
+            width: 400px;
+            height: 400px;
+            box-shadow: 10px 20px 30px black;
+            border: 8px solid rgb(204, 194, 7);
+            border-radius: 50px;
+            margin: 20px 0% 20px 0%;
+            text-align: center;
+            position: center;
+        }
+
+        #challenge{
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            font-size: 2.2rem;
+            text-shadow: 1px 1px 10px lightgrey;
+            padding: 20px;
+        }
+
+        #newCard{
+            box-shadow: 0px 5px 5px black;
+            background-color: rgb(68, 133, 255);
+            color: white;
+            text-align: center;
+            justify-content: center;
+            position: center;
+            width: 300px;
+            height: 50px;
+            border: none;
+            transition: 0.2s ease-in-out;
+            border-radius: 50px;
+            margin-top: 30px;
+        
+        }
+
+        #newCard:hover{
+            border: 2px solid rgb(255, 255, 255);
+        }
+
+        #newCard:active{
+            box-shadow: none;
+            margin-top: 35px;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            height: auto;
+        }
+    </style>
     <body>
         <h1> DesAfiando </h1>
+
+        <div class = 'container'>
+            
         <div class="card">
         
             <p id = 'challenge'></p>
-        
+        </div>
         </div>
 
-        <button>New Challenge</button>
+        <button id = 'newCard'>New Challenge</button>
     </body>
     <script> 
     // array of challenges for kids to exercise their mental abilities
@@ -24,7 +97,7 @@ const challenges = ['Say or write the following numbers subtracting 2: 3 - 6 - 1
 "Each time you hear the word 'house', give one step ahead: LIVING ROOM - KITCHEN - HOUSE - HOUSE - OFFICE - HOUSE - BATHROOM - HOUSE - BALCONY - HOUSE - HOUSE - BACKYARD - HOUSE - BEDROOM - HOUSE",
 "Without drawing, tell a person how to draw a house", "Say the half of each following number: 12 - 8 - 6 - 14 - 18 - 16 - 2 - 20 - 24 - 28 - 44 - 66 - 40",
 "Read the following text removing the word 'duck': This duck, is duck the duck, best duck, way duck, of duck, hiding duck, a duck, text duck, from duck, a distracted duck, reader duck, without duck, being duck, noticed duck.",
-"Say or write the numbere that comes before the following ones: 4 - 2 - 1 - 3 - 6 - 5 - 7 - 8 - 9 - 15 - 18 - 12 - 16",
+"Say or write the number that comes before the following ones: 4 - 2 - 1 - 3 - 6 - 5 - 7 - 8 - 9 - 15 - 18 - 12 - 16",
 "Say in one minute: OBJECTS THAT EXIST IN A KITCHEN - OBJECTS THAT EXIST IN AN OFFICE - OBJECTS THAT EXIST IN A CLASSROOM",
 "Say a word that starts with the same first syllable of each of the following words: BALD - NAP - DOLL - COW - LION - CAT - BACKPACK - BOOK - PENCIL - SHOE - DICE - DOMINO",
 "Say 5 ridiculous uses for: A CAP - A SHOE - A CELLPHONE - A COMPUTER",
@@ -33,12 +106,17 @@ const challenges = ['Say or write the following numbers subtracting 2: 3 - 6 - 1
 "Hear the numbers the repeat them in the same order: 3 - 5 - 4 - 6 - 2 - 7 - 3 - 2 - 7 - 8 - 1 - 5 - 0 - 3 - 9 - 3 - 4 - 1 - 8 - 9"];
 
 
-const chosenChallenge = challenges[(Math.floor(Math.random()*19 + 1))];
-
     function writeChallenge() {
   var challenge = document.getElementById('challenge');
-  challenge.innerHTML(`${chosenChallenge}`);
+  challenge.innerHTML = '';
+
+  chosenChallenge = challenges[Math.floor(Math.random() * challenges.length)];
+
+  challenge.innerHTML = `${chosenChallenge}`;
 }    
-button.addEventListener('clicked', writeChallenge());
+const button =  document.getElementById('newCard');
+
+button.addEventListener('click', writeChallenge);
     </script>
+
 </html>
